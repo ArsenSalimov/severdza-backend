@@ -1,0 +1,10 @@
+{
+  "name": "wedding-backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Arsen Salimov <ars.salimov@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@nestjs/cli": "^5.2.0"
+  }
+}
