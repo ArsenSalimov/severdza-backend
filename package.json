@@ -4,7 +4,20 @@
   "main": "index.js",
   "author": "Arsen Salimov <ars.salimov@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "start": "ts-node src/main.ts"
+  },
   "devDependencies": {
-    "@nestjs/cli": "^5.2.0"
+    "@nestjs/cli": "^5.2.0",
+    "@types/node": "^10.3.4",
+    "ts-node": "^6.1.2",
+    "tslint": "^5.10.0"
+  },
+  "dependencies": {
+    "@nestjs/common": "^5.0.1",
+    "@nestjs/core": "^5.0.1",
+    "reflect-metadata": "^0.1.12",
+    "rxjs": "^6.2.1",
+    "typescript": "^2.9.2"
   }
 }
