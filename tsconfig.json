@@ -3,6 +3,7 @@
     "module": "commonjs",
     "declaration": false,
     "noImplicitAny": false,
+    "strictNullChecks": true,
     "removeComments": true,
     "noLib": false,
     "emitDecoratorMetadata": true,
@@ -10,7 +11,11 @@
     "target": "es6",
     "sourceMap": true,
     "allowJs": true,
-    "outDir": "./build"
+    "outDir": "./build",
+    "plugins": [{
+      "name": "tslint-language-service"
+    }
+    ]
   },
   "include": [
     "src/**/*"
