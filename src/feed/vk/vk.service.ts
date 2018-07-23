@@ -18,6 +18,7 @@ export class VkService {
     }
 
     async syncWithVk(): Promise<void> {
+        await this.attachmentRepository.clear();
         await this.feedRepository.clear();
         await this.pullFromVkGroup();
     }
