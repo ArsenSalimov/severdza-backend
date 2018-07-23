@@ -78,7 +78,7 @@ export class VkService {
                                 attachment.link = {
                                     url: vkAttachment.url,
                                     title: vkAttachment.title,
-                                    photoUrl: vkAttachment.photo.sizes[vkAttachment.photo.sizes.length - 1],
+                                    photoUrl: vkAttachment.link.sizes[vkAttachment.photo.sizes.length - 1],
                                 };
                             }
 
