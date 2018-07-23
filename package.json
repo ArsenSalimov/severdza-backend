@@ -5,7 +5,8 @@
   "author": "Arsen Salimov <ars.salimov@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "ts-node %NODE_DEBUG_OPTION% src/main.ts"
+    "start:dev": "ts-node %NODE_DEBUG_OPTION% src/main.ts",
+    "start:prod": "ts-node src/main.ts"
   },
   "devDependencies": {
     "@nestjs/cli": "^5.2.0",
