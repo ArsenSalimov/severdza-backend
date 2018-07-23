@@ -11,7 +11,7 @@ import {VkApiPostDto} from './vkApiPost.dto';
 export class VkService {
     private readonly VK_API_URL = 'https://api.vk.com/method';
     private readonly SERVICE_KEY = '4efd21e64efd21e64efd21e6254ea26a5544efd4efd21e617014acbdb363c0d500d5114';
-    private readonly PERSONAL_KEY = '67575e4f393df65ae4f5e3d79baad77d658b11d369d3a9acf67f588b19d034823d41c708b2e76656ab3ba';
+    private readonly PERSONAL_KEY = '0a721fd4140b15ab7d8346f44dbd54773fb829f3b1d53d2f9307c6edb1ccafba582a38254f00d2c1d39bd';
 
     constructor(@InjectRepository(FeedItem) private readonly feedRepository: Repository<FeedItem>,
                 @InjectRepository(Attachment) private readonly attachmentRepository: Repository<Attachment>) {
