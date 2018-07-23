@@ -6,6 +6,7 @@ import {FeedItem} from '../feedItem.entity';
 import {Repository} from 'typeorm';
 import {Attachment} from '../attachment.entity';
 import {VkApiPostDto} from './vkApiPost.dto';
+import {timeout} from 'rxjs/operators';
 
 @Injectable()
 export class VkService {
@@ -31,8 +32,13 @@ export class VkService {
             await this.savePosts(items);
             count -= items.length;
 
+            await this.timeout(1000);
             ({items} = await this.getPostsFromWall());
         }
+    }
+
+    private timeout(ms): Promise<void> {
+        return new Promise(resolve => setTimeout(resolve, ms));
     }
 
     private async savePosts(items: Array<VkApiPostDto>) {
@@ -49,6 +55,7 @@ export class VkService {
 
                 if (videos.length > 0) {
                     const tmp = await this.getVideos(videos);
+                    await this.timeout(1000);
                     vkVideos = tmp.data.response.items;
                 }
 
@@ -78,7 +85,7 @@ export class VkService {
                                 attachment.link = {
                                     url: vkAttachment.url,
                                     title: vkAttachment.title,
-                                    photoUrl: vkAttachment.link.sizes[vkAttachment.photo.sizes.length - 1],
+                                    photoUrl: vkAttachment.link.photo.sizes[vkAttachment.link.photo.sizes.length - 1],
                                 };
                             }
 
