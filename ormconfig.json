@@ -4,7 +4,8 @@
   "port": 3306,
   "username": "root",
   "password": "arsen13081995",
-  "database": "wedding",
+  "database": "sevserdza",
   "entities": ["./src/**/**.entity.ts"],
+  "charset": "utf8mb4",
   "synchronize": true
 }
