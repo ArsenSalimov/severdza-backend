@@ -32,7 +32,7 @@ export class VkService {
             await this.savePosts(items);
             count -= items.length;
 
-            await this.timeout(1000);
+            await this.timeout(500);
             ({items} = await this.getPostsFromWall());
         }
     }
@@ -55,7 +55,7 @@ export class VkService {
 
                 if (videos.length > 0) {
                     const tmp = await this.getVideos(videos);
-                    await this.timeout(1000);
+                    await this.timeout(500);
                     vkVideos = tmp.data.response.items;
                 }
 
