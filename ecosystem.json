@@ -5,7 +5,7 @@
     "args": "start:prod",
     "env": {
       "NODE_ENV": "production",
-      "HOST": "94.250.249.85",
+      "HOST": "сердце-севастополя.рф",
       "PORT": "443"
     }
   }],
