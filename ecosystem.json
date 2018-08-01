@@ -1,6 +1,6 @@
 {
   "apps": [{
-    "name": "frontend",
+    "name": "backend",
     "script": "yarn",
     "args": "start:prod",
     "env": {
