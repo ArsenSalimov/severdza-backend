@@ -6,7 +6,6 @@ import {FeedItem} from '../feedItem.entity';
 import {Repository} from 'typeorm';
 import {Attachment} from '../attachment.entity';
 import {VkApiPostDto} from './vkApiPost.dto';
-import {timeout} from 'rxjs/operators';
 
 @Injectable()
 export class VkService {
@@ -73,20 +72,25 @@ export class VkService {
                             } else if (vkAttachment.type === 'video') {
                                 attachment.type = 'video';
                                 const video = vkVideos.find(vkVideo => vkVideo.id === vkAttachment.video.id);
-                                attachment.video = {
-                                    url: video.player || video.files.external,
-                                    width: vkAttachment.video.width,
-                                    height: vkAttachment.video.height,
-                                };
 
+                                if (video) {
+                                    attachment.video = {
+                                        url: video.player || video.files.external,
+                                        width: vkAttachment.video.width,
+                                        height: vkAttachment.video.height,
+                                    };
+                                }
+                                
                                 return this.attachmentRepository.save(attachment);
                             } else if (vkAttachment.type === 'link') {
-                                attachment.type = 'link';
-                                attachment.link = {
-                                    url: vkAttachment.url,
-                                    title: vkAttachment.title,
-                                    photoUrl: vkAttachment.link.photo.sizes[vkAttachment.link.photo.sizes.length - 1],
-                                };
+                                if (vkAttachment.link.target !== 'internal') {
+                                    attachment.type = 'link';
+                                    attachment.link = {
+                                        url: vkAttachment.url,
+                                        title: vkAttachment.title,
+                                        photoUrl: vkAttachment.link.photo.sizes[vkAttachment.link.photo.sizes.length - 1],
+                                    };
+                                }
                             }
 
                             return Promise.resolve(null);
