@@ -12,7 +12,7 @@ import {timeout} from 'rxjs/operators';
 export class VkService {
     private readonly VK_API_URL = 'https://api.vk.com/method';
     private readonly SERVICE_KEY = '4efd21e64efd21e64efd21e6254ea26a5544efd4efd21e617014acbdb363c0d500d5114';
-    private readonly PERSONAL_KEY = '0a721fd4140b15ab7d8346f44dbd54773fb829f3b1d53d2f9307c6edb1ccafba582a38254f00d2c1d39bd';
+    private readonly PERSONAL_KEY = '6ecc7939436f1bcbce909b8499dbbcaebd06440baa08ee4349cc9d564b1d53e9b3d65afb6f5eaebbbe9c9';
 
     constructor(@InjectRepository(FeedItem) private readonly feedRepository: Repository<FeedItem>,
                 @InjectRepository(Attachment) private readonly attachmentRepository: Repository<Attachment>) {
